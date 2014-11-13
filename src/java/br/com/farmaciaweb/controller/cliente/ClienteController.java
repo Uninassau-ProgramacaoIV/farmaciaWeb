@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.farmaciaweb;
+package br.com.farmaciaweb.controller.cliente;
 
 /**
  *
  * @author ThiagoH
  */
-public class Test {
+public class ClienteController {
     
 }
