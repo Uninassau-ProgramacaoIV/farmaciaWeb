@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="hibernate.dialect">org.hibernate.dialect.SQLServerDialect</property>
+    <property name="hibernate.connection.driver_class">com.microsoft.sqlserver.jdbc.SQLServerDriver</property>
+    <property name="hibernate.connection.url">jdbc:sqlserver://MENAHEN:1433;databaseName=farmaciaweb</property>
+    <property name="hibernate.connection.username">Net</property>
+    <property name="hibernate.connection.password">Santos147258</property>
+    <property name="hibernate.show_sql">true</property>
+    <property name="hibernate.current_session_context_class">thread</property>
+    <mapping resource="farmaciaweb/Models/Funcionarios.hbm.xml"/>
+    <mapping resource="farmaciaweb/Models/Fornecedores.hbm.xml"/>
+    <mapping resource="farmaciaweb/Models/Pedidos.hbm.xml"/>
+    <mapping resource="farmaciaweb/Models/Clientes.hbm.xml"/>
+    <mapping resource="farmaciaweb/Models/DetalhesPedido.hbm.xml"/>
+    <mapping resource="farmaciaweb/Models/Produtos.hbm.xml"/>
+  </session-factory>
+</hibernate-configuration>

@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 22/11/2014 09:20:02 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="farmaciaweb.Models.DetalhesPedido" table="Detalhes_pedido" schema="dbo" catalog="farmaciaweb">
+        <composite-id name="id" class="farmaciaweb.Models.DetalhesPedidoId">
+            <key-property name="codigoPedido" type="int">
+                <column name="codigo_pedido" />
+            </key-property>
+            <key-property name="codigoProduto" type="int">
+                <column name="codigo_produto" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="pedidos" class="farmaciaweb.Models.Pedidos" update="false" insert="false" fetch="select">
+            <column name="codigo_pedido" not-null="true" />
+        </many-to-one>
+        <many-to-one name="produtos" class="farmaciaweb.Models.Produtos" update="false" insert="false" fetch="select">
+            <column name="codigo_produto" not-null="true" />
+        </many-to-one>
+        <property name="precoUnitario" type="long">
+            <column name="preco_unitario" precision="18" scale="0" not-null="true" />
+        </property>
+        <property name="quantidade" type="int">
+            <column name="quantidade" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

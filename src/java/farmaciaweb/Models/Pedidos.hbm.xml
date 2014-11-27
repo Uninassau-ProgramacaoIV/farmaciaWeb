@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 22/11/2014 09:20:02 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="farmaciaweb.Models.Pedidos" table="Pedidos" schema="dbo" catalog="farmaciaweb">
+        <id name="codigo" type="int">
+            <column name="codigo" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="clientes" class="farmaciaweb.Models.Clientes" fetch="select">
+            <column name="codigo_cliente" not-null="true" />
+        </many-to-one>
+        <many-to-one name="funcionarios" class="farmaciaweb.Models.Funcionarios" fetch="select">
+            <column name="codigo_funcionario" not-null="true" />
+        </many-to-one>
+        <property name="dataPedido" type="timestamp">
+            <column name="data_pedido" length="23" />
+        </property>
+        <property name="valorTotal" type="java.lang.Long">
+            <column name="valor_total" precision="18" scale="0" />
+        </property>
+        <property name="quantidadeTotal" type="java.lang.Integer">
+            <column name="quantidade_total" />
+        </property>
+        <property name="statusPedido" type="string">
+            <column name="status_pedido" length="10" />
+        </property>
+        <set name="detalhesPedidos" table="Detalhes_pedido" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="codigo_pedido" not-null="true" />
+            </key>
+            <one-to-many class="farmaciaweb.Models.DetalhesPedido" />
+        </set>
+    </class>
+</hibernate-mapping>
